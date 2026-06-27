@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Undangan Khitan Dhafin</title>
+
+  <link rel="stylesheet" href="style.css" />
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700;800&family=Nunito:wght@400;600;700;800&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+
+  <audio id="bgMusic" src="assets/musik.mp3" loop></audio>
+  <button class="music-toggle" id="musicToggle" type="button" aria-label="Putar musik" aria-pressed="false">
+    ♫
+  </button>
+
+  <main class="app">
+
+    <!-- PAGE 1 - OPENING -->
+<section class="page page-bg-only" id="page1">
+
+    <!-- Background -->
+    <img src="assets/bg_page1.png" class="bg-img" alt="Cover Undangan">
+
+    <!-- Nama Tamu -->
+    <div class="guest-card">
+        <p class="guest-title">Kepada Yth.</p>
+
+        <h3 id="guestName">
+            Bapak/Ibu/Saudara/i
+        </h3>
+
+        <p class="guest-place">di Tempat</p>
+    </div>
+
+    <!-- Tombol -->
+    <button class="open-btn" id="openBtn">
+        Buka Undangan
+    </button>
+
+    <div class="sparkle-layer"></div>
+    <div class="snow-layer" id="snowLayer"></div>
+
+</section>
+    <!-- PAGE 2 - OPENING 2 -->
+    <section class="page page-bg-only" id="page2">
+
+      <div class="sparkle-layer"></div>
+      <div class="snow-layer"></div>
+
+      <img src="assets/bg_page2.png" class="bg-img" alt="Pembuka Undangan">
+    </section>
+
+    <!-- PAGE 3 - COUNTDOWN + ALAMAT -->
+    <section class="page" id="page3">
+      <img src="assets/bg_page4.png" class="bg-img" alt="Detail Acara">
+
+      <div class="page-content page3-content reveal">
+      <div class="sparkle-layer"></div>
+      <div class="snow-layer"></div>
+
+        <h2>Countdown</h2>
+        <p class="subtitle">Menuju Hari Bahagia</p>
+
+        <div class="countdown">
+          <div class="count-card">
+            <b id="days">0</b>
+            <span>Hari</span>
+          </div>
+
+          <div class="count-card">
+            <b id="hours">0</b>
+            <span>Jam</span>
+          </div>
+
+          <div class="count-card">
+            <b id="minutes">0</b>
+            <span>Menit</span>
+          </div>
+
+          <div class="count-card">
+            <b id="seconds">0</b>
+            <span>Detik</span>
+          </div>
+        </div>
+
+        <h2 class="section-title">Detail Acara</h2>
+        <p class="subtitle">Catat tanggal pentingnya ya!</p>
+
+        <div class="detail-card">
+
+          <div class="detail-row">
+            <img src="assets/icon-calendar-premium.png" alt="">
+            <div>
+              <b>Kamis, 02 Juli 2026</b>
+            </div>
+          </div>
+
+          <div class="detail-row">
+            <img src="assets/icon-clock-premium.png" alt="">
+            <div>
+              <b>09:30 WIB s.d. Selesai</b>
+            </div>
+          </div>
+
+          <div class="detail-row">
+  <img src="assets/icon-location-premium.png" alt="">
+  <div>
+    <b>Lokasi Acara</b>
+    <small>
+      Perumahan Sindangjati Residence Blok A 35
+    </small>
+  </div>
+</div>
+
+<div class="maps-preview">
+
+  <iframe
+    src="https://maps.google.com/maps?q=Perumahan%20Sindangjati%20Residence%20Blok%20A%2035%20Sumedang&t=&z=15&ie=UTF8&iwloc=&output=embed"
+    loading="lazy"
+    allowfullscreen>
+  </iframe>
+
+</div>
+
+<button class="blue-btn" onclick="openMaps()">
+  Buka Google Maps
+</button>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- PAGE 4 - RESERVASI + AMPLOP DIGITAL -->
+    <section class="page" id="page4">
+      <img src="assets/bg_page4.png" class="bg-img" alt="Reservasi dan Amplop Digital">
+
+      <div class="page-content rsvp-content reveal">
+      <div class="sparkle-layer"></div>
+      <div class="snow-layer"></div>
+
+        <h2>Konfirmasi Kehadiran</h2>
+        <p class="subtitle">Mohon konfirmasi kehadiran Anda</p>
+
+        <div class="rsvp-card">
+
+          <input
+            type="text"
+            id="namaTamu"
+            placeholder="Nama Anda"
+          >
+
+          <div class="rsvp-option">
+            <label>
+              <input
+                type="radio"
+                name="hadir"
+                value="Hadir"
+                checked
+              >
+              Hadir
+            </label>
+
+            <label>
+              <input
+                type="radio"
+                name="hadir"
+                value="Tidak Hadir"
+              >
+              Tidak Hadir
+            </label>
+          </div>
+
+          <textarea
+            id="ucapan"
+            placeholder="Ucapan / Doa untuk Dhafin"
+          ></textarea>
+
+          <button class="blue-btn" onclick="kirimRSVP()">
+            Kirim ke WhatsApp
+          </button>
+
+        </div>
+
+        <div class="rekening-card">
+          <h2>Amplop Digital</h2>
+          <p class="subtitle">Doa terbaik Anda adalah hadiah terindah</p>
+
+          <div class="rekening-box">
+            <div class="rekening-item">
+              <p>Bank BRI</p>
+              <b>444001034219530</b>
+              <p>a.n. Hadi Gustian Sapik</p>
+
+              <button class="blue-btn" onclick="copyRekening('444001034219530')">
+                Salin Rekening BRI
+              </button>
+            </div>
+
+            <div class="rekening-item">
+              <p>Bank BCA</p>
+              <b>7741044629</b>
+              <p>a.n. Aan Yuliana</p>
+
+              <button class="blue-btn" onclick="copyRekening('7741044629')">
+                Salin Rekening BCA
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- PAGE 5 - UCAPAN -->
+    <section class="page" id="page5">
+      <img src="assets/bg_page4.png" class="bg-img" alt="Ucapan dan Doa">
+
+      <div class="page-content ucapan-content reveal">
+        <div class="sparkle-layer"></div>
+        <div class="snow-layer"></div>
+
+        <h2>Ucapan & Doa</h2>
+        <p class="subtitle">Tinggalkan ucapan terbaik Anda</p>
+
+        <div class="ucapan-card">
+          <input
+            type="text"
+            id="commentName"
+            placeholder="Nama"
+          >
+
+          <textarea
+            id="commentMessage"
+            placeholder="Ucapan"
+          ></textarea>
+
+          <button class="blue-btn" onclick="submitUcapan()">
+            Upload Ucapan
+          </button>
+        </div>
+
+        <div class="comment-list" id="commentList">
+          <p class="empty-comment">Belum ada ucapan.</p>
+        </div>
+      </div>
+    </section>
+
+   <!-- PAGE 6 - DOA + GALLERY -->
+<section class="page" id="page6">
+
+  <img src="assets/bg_page4.png" class="bg-img" alt="Doa dan Galeri">
+
+  <div class="page-content doa-content reveal">
+      <div class="sparkle-layer"></div>
+      <div class="snow-layer"></div>
+
+    <!-- DOA -->
+    <h2>Doa & Harapan</h2>
+    <p class="subtitle">Doa terbaik dari kami</p>
+
+    <div class="doa-card">
+
+      <p class="arab">
+        اللَّهُمَّ اجْعَلْهُ مِنَ الصَّالِحِينَ
+        وَارْزُقْهُ فَهْمًا وَزَكَاءً
+        وَبَرَكَةً فِي دِينِهِ وَدُنْيَاهُ
+      </p>
+
+      <p>
+        Ya Allah, jadikanlah ia termasuk anak-anak yang saleh,
+        berilmu, berakhlak mulia dan berbakti kepada kedua orang tuanya.
+      </p>
+
+    </div>
+
+    <!-- GALERI -->
+    <div class="gallery-slider">
+
+  <div class="main-photo-box">
+    <img id="mainGalleryPhoto" src="assets/galleri-apin1.jpeg" alt="">
+  </div>
+
+  <div class="thumb-row">
+    <img src="assets/galleri-apin1.jpeg" class="thumb active" onclick="changeGallery(this)">
+    <img src="assets/galleri-apin2.jpeg" class="thumb" onclick="changeGallery(this)">
+    <img src="assets/galleri-apin3.jpeg" class="thumb" onclick="changeGallery(this)">
+    <img src="assets/galleri-apin4.jpeg" class="thumb" onclick="changeGallery(this)">
+    <img src="assets/galleri-apin5.jpeg" class="thumb" onclick="changeGallery(this)">
+    <img src="assets/galleri-apin6.jpeg" class="thumb" onclick="changeGallery(this)">
+  </div>
+
+</div>
+
+</section>
+
+    <!-- PAGE 7 - PENUTUP -->
+    <section class="page page-bg-only" id="page7">
+      <div class="sparkle-layer"></div>
+      <div class="snow-layer"></div>
+      <img src="assets/bg_page3.png" class="bg-img" alt="Penutup Undangan">
+    </section>
+
+  </main>
+
+  <div class="lightbox" id="lightbox">
+    <img id="lightboxImg" src="" alt="">
+  </div>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
